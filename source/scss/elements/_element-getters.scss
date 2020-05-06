@@ -1,0 +1,75 @@
+@use 'ELEMENTS';
+@use 'system';
+
+@function color($set-name, $key: null) {
+  @return system.get-super-set-value(ELEMENTS.$colors, $set-name, $key);
+}
+
+@function opacity($key: null) {
+  @return system.get-set-value(ELEMENTS.$opacities, $key);
+}
+
+
+@function border-style($key: null) {
+  @return system.get-set-value(ELEMENTS.$border-styles, $key);
+}
+
+@function border-width($key: null) {
+  @return system.get-set-value(ELEMENTS.$border-widths, $key);
+}
+
+@function radius($key: null) {
+  @return system.get-set-value(ELEMENTS.$radii, $key);
+}
+
+
+@function font-family($key: null) {
+  @return system.get-set-value(ELEMENTS.$font-families, $key);
+}
+
+@function font-size($key: null) {
+  @return system.get-set-value(ELEMENTS.$font-sizes, $key);
+}
+
+@function line-height($key: null) {
+  @return system.get-set-value(ELEMENTS.$line-heights, $key);
+}
+
+@function letter-spacing($key: null) {
+  @return system.get-set-value(ELEMENTS.$letter-spacings, $key);
+}
+
+
+@function space($key: null) {
+  @return system.get-set-value(ELEMENTS.$spaces, $key);
+}
+
+@function breakpoint($key: null) {
+  @return system.get-set-value(ELEMENTS.$breakpoints, $key);
+}
+
+@function height($key: null) {
+  @return system.get-set-value(ELEMENTS.$heights, $key);
+}
+
+@function width($key: null) {
+  @return system.get-set-value(ELEMENTS.$widths, $key);
+}
+
+@function zIndex($key: null) {
+  @return system.get-set-value(ELEMENTS.$zIndices, $key);
+}
+
+
+@function images($key: null) {
+  @return system.get-set-value(ELEMENTS.$images, $key);
+}
+
+
+@function times($key: null) {
+  @return system.get-set-value(ELEMENTS.$timings, $key);
+}
+
+@function timingFunctions($key: null) {
+  @return system.get-set-value(ELEMENTS.$timingFunctions, $key);
+}

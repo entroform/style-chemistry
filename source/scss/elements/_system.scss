@@ -1,0 +1,70 @@
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:list';
+
+@function get-set-value($set, $key: null) {
+  @if (
+    meta.type-of($set) == map
+    and map.has-key($set, 'set')
+    and meta.type-of(map.get($set, 'set')) == list
+  ) {
+
+    $_set: map.get($set, 'set');
+
+    // Check default if key is null.
+    @if ($key == null) {
+      $index: 1;
+
+      @if (
+        map.has-key($set, 'default')
+        and meta.type-of(map.get($set, 'default')) == number
+        and list.nth($_set, map.get($set, 'default'))
+      ) {
+        @return list.nth($_set, map.get($set, 'default'));
+      }
+
+      @return list.nth($_set, $index);
+    }
+
+    // If key is string and alias is set.
+    @if (
+      meta.type-of($key) == string
+      and map.has-key($set, 'alias')
+      and meta.type-of(map.get($set, 'alias')) == map
+      and map.has-key(map.get($set, 'alias'), $key)
+    ) {
+      $index: map.get(map.get($set, 'alias'), $key);
+
+      @if (
+        meta.type-of($index) == number
+        and list.nth($_set, $index)
+      ) {
+        @return list.nth($_set, $index);
+      }
+    }
+
+    // If key is number and is in set list.
+    @if (
+      meta.type-of($key) == number
+      and list.nth($_set, $key)
+    ) {
+      @return list.nth($_set, $key);
+    }
+
+    @error '$key is invalid or does not exist in set.';
+  }
+
+  @error '$set is invalid.';
+}
+
+
+@function get-super-set-value($super-set, $set, $value: null) {
+  @if (
+    meta.type-of($super-set) == map
+    and map.has-key($super-set, $set)
+  ) {
+    @return get-set-value(map.get($super-set, $set), $value);
+  }
+
+  @error '$super-set is invalid or is not defined.';
+}

@@ -1,0 +1,127 @@
+@use '../utilities';
+
+$colors: (
+  'gray': (
+    'set': (
+
+    ),
+  ),
+);
+
+$opacities: (
+
+);
+
+
+$border-styles: (
+  'set': (
+    solid,
+  ),
+  'default': 1,
+  'alias': (
+
+  ),
+);
+
+$border-widths: (
+  'set': (
+    2
+  ),
+  'default': 1,
+  'alias': (
+
+  ),
+);
+
+$radii: (
+
+);
+
+
+$font-sizes: (
+  'set': (
+    utilities.px-to-rem(12),
+    utilities.px-to-rem(14),
+    utilities.px-to-rem(16),
+    utilities.px-to-rem(18),
+    utilities.px-to-rem(20),
+  ),
+  'default': 3,
+  'alias': (
+
+  ),
+);
+
+$font-families: (
+  'set': (
+    (sans-serif),
+  ),
+  'default': 1,
+  'alias': (
+    'small': 1,
+  )
+);
+
+$font-weights: (
+  'set': (
+
+  ),
+  'default': 1,
+  'alias': (
+
+  ),
+);
+
+$line-heights: (
+
+);
+
+$letter-spacings: (
+
+);
+
+$spaces: (
+  'set': (
+
+  ),
+  'default': 1,
+  'alias': (
+
+  ),
+);
+
+$breakpoints: (
+  'set': (
+
+  ),
+  'default': 1,
+  'alias': (
+
+  ),
+);
+
+$heights: (
+
+);
+
+$widths: (
+
+);
+
+$zIndices: (
+
+);
+
+
+$images: (
+
+);
+
+
+$times: (
+
+);
+
+$timingFunctions: (
+
+);
