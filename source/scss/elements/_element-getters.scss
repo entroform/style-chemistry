@@ -1,77 +1,81 @@
-@use 'ELEMENTS';
-@use 'system';
+@use 'elements';
+@use '../system';
 
 @function color($set-name, $key: null) {
-  @return system.get-super-set-value(ELEMENTS.$colors, $set-name, $key);
+  @return system.get-super-set-value(elements.$colors, $set-name, $key);
 }
 
 @function opacity($key: null) {
-  @return system.get-set-value(ELEMENTS.$opacities, $key);
+  @return system.get-set-value(elements.$opacities, $key);
 }
 
 
 @function font-family($key: null) {
-  @return system.get-set-value(ELEMENTS.$font-families, $key);
+  @return system.get-set-value(elements.$font-families, $key);
 }
 
 @function font-size($key: null) {
-  @return system.get-set-value(ELEMENTS.$font-sizes, $key);
+  @return system.get-set-value(elements.$font-sizes, $key);
 }
 
-@function line-height($key: null) {
-  @return system.get-set-value(ELEMENTS.$line-heights, $key);
+@function font-weight($key: null) {
+  @return system.get-set-value(elements.$font-weights, $key);
 }
 
 @function letter-spacing($key: null) {
-  @return system.get-set-value(ELEMENTS.$letter-spacings, $key);
+  @return system.get-set-value(elements.$letter-spacings, $key);
+}
+
+@function line-height($key: null) {
+  @return system.get-set-value(elements.$line-heights, $key);
 }
 
 
 @function border-style($key: null) {
-  @return system.get-set-value(ELEMENTS.$border-styles, $key);
+  @return system.get-set-value(elements.$border-styles, $key);
 }
 
 @function border-width($key: null) {
-  @return system.get-set-value(ELEMENTS.$border-widths, $key);
+  @return system.get-set-value(elements.$border-widths, $key);
 }
 
 
 @function radius($key: null) {
-  @return system.get-set-value(ELEMENTS.$radii, $key);
+  @return system.get-set-value(elements.$radii, $key);
 }
 
 @function space($key: null) {
-  @return system.get-set-value(ELEMENTS.$spaces, $key);
+  @return system.get-set-value(elements.$spaces, $key);
 }
 
 
 @function height($key: null) {
-  @return system.get-set-value(ELEMENTS.$heights, $key);
+  @return system.get-set-value(elements.$heights, $key);
 }
 
 @function width($key: null) {
-  @return system.get-set-value(ELEMENTS.$widths, $key);
+  @return system.get-set-value(elements.$widths, $key);
 }
 
 
 @function breakpoint($key: null) {
-  @return system.get-set-value(ELEMENTS.$breakpoints, $key);
+  @return system.get-set-value(elements.$breakpoints, $key);
 }
 
-@function zIndex($key: null) {
-  @return system.get-set-value(ELEMENTS.$zIndices, $key);
-}
-
-
-@function images($key: null) {
-  @return system.get-set-value(ELEMENTS.$images, $key);
+@function z-index($key: null) {
+  @return system.get-set-value(elements.$zIndices, $key);
 }
 
 
-@function times($key: null) {
-  @return system.get-set-value(ELEMENTS.$timings, $key);
+@function image($key: null) {
+  @return system.get-set-value(elements.$images, $key);
 }
 
-@function timingFunctions($key: null) {
-  @return system.get-set-value(ELEMENTS.$timingFunctions, $key);
+
+@function time($key: null) {
+  @return system.get-set-value(elements.$timings, $key);
+}
+
+@function timing-function($key: null) {
+  @return system.get-set-value(elements.$timingFunctions, $key);
 }

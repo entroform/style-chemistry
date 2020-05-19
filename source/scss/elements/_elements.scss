@@ -15,6 +15,16 @@ $colors: (
 $opacities: ();
 
 
+$font-families: (
+  'set': (
+    (sans-serif),
+  ),
+  'selectors': (
+    'small': 1,
+  ),
+  'default': 1,
+);
+
 $font-sizes: (
   'set': (
     utility.px-to-rem(12),
@@ -29,29 +39,15 @@ $font-sizes: (
   'default': 3,
 );
 
-$font-families: (
-  'set': (
-    (sans-serif),
-  ),
-  'selectors': (
-    'small': 1,
-  ),
-  'default': 1,
-);
-
 $font-weights: (
-  'set': (
-
-  ),
+  'set': (),
+  'selectors': (),
   'default': 1,
-  'selectors': (
-
-  ),
 );
-
-$line-heights: ();
 
 $letter-spacings: ();
+
+$line-heights: ();
 
 
 $border-styles: ();
@@ -82,7 +78,7 @@ $widths: ();
 
 $breakpoints: ();
 
-$zIndices: ();
+$z-indices: ();
 
 
 $images: ();
@@ -90,4 +86,4 @@ $images: ();
 
 $times: ();
 
-$timingFunctions: ();
+$timing-functions: ();

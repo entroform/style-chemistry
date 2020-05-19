@@ -95,28 +95,30 @@ Getters are functions that resolve a value from a Set or SuperSet.
 
 ## Elements
 
-Elements are composed of the following 16 Sets and 1 SuperSet (`colors`) listed below.
+Elements are composed of the following 16 Sets and 1 SuperSet (`colors`) listed below and their getters.
+
 This is the canonical order of elements:
 
-| Elements | Type |
-|---|---|
-| colors | SuperSet |
-| opacities | Set |
-| font-families | Set |
-| font-sizes | Set |
-| line-heights | Set |
-| letter-spacings | Set |
-| border-styles | Set |
-| border-widths | Set |
-| radii | Set |
-| spaces | Set |
-| heights | Set |
-| widths | Set |
-| breakpoints | Set |
-| z-indices | Set |
-| images | Set |
-| times | Set |
-| timing-functions | Set |
+| Element | Type | Getter |
+|---|---|---|
+| colors | SuperSet | color |
+| opacities | Set | opacity |
+| font-families | Set | font-family |
+| font-sizes | Set | font-size |
+| font-weights | Set | font-weight |
+| letter-spacings | Set | letter-spacing |
+| line-heights | Set | line-height |
+| border-styles | Set | border-style |
+| border-widths | Set | border-width |
+| radii | Set | radius |
+| spaces | Set | space |
+| heights | Set | height |
+| widths | Set | width |
+| breakpoints | Set | breakpoint |
+| z-indices | Set | z-index |
+| images | Set | image |
+| times | Set | time |
+| timing-functions | Set | timing-function |
 
 ## Compounds
 
