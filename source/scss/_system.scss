@@ -57,7 +57,6 @@
   @error '$set is invalid.';
 }
 
-
 @function get-super-set-value($super-set, $set, $value: null) {
   @if (
     meta.type-of($super-set) == map

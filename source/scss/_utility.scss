@@ -17,7 +17,3 @@
 @function rem-to-px($rem) {
   @return strip-unit($rem) * config.$BASE_FONT_SIZE;
 }
-
-@function width-percentage($number, $base: 12) {
-  @return (strip-unit($number) / strip-unit($base)) * 100 + 0%;
-}

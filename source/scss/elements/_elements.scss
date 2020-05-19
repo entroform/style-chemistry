@@ -1,6 +1,13 @@
 @use '../utility';
 
 $colors: (
+  'paper': (
+    'set': (
+      hsl(0, 0, 100),
+    ),
+    'selectors': (),
+    'default': 1,
+  ),
   'ink': (
     'set': (
       hsl(0, 0, 10),

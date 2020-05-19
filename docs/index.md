@@ -26,11 +26,11 @@ An example of an Element Set:
 ```scss
 $font-sizes: (
   'set': (
-    rem(12),
-    rem(14),
-    rem(16),
-    rem(18),
-    rem(24),
+    12px,
+    14px,
+    16px,
+    18px,
+    24px,
   ),
   'selectors': (
     'body.small': 2,
@@ -84,7 +84,13 @@ $colors: (
     'default': 3,
   ),
   'ink': (
+    'set': (
 
+    ),
+    'selectors': (
+
+    ),
+    'default': 3,
   ),
 );
 ```
@@ -124,6 +130,22 @@ This is the canonical order of elements:
 
 Compounds are a mix of Element Set and SuperSets.
 
+```scss
+$gradients: (
+  'set': (
+    'linear-gradient(90deg, #{color('magenta')}, #{color('cyan')})',
+  ),
+  'selectors': (
+    'sunset': 1,
+  ),
+  'default': 1,
+);
+```
+
 ## Mixtures
 
 Mixtures are a mix of Compounds and Elements Sets and SuperSets.
+
+```scs
+
+```
