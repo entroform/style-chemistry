@@ -10,19 +10,6 @@
 }
 
 
-@function border-style($key: null) {
-  @return system.get-set-value(ELEMENTS.$border-styles, $key);
-}
-
-@function border-width($key: null) {
-  @return system.get-set-value(ELEMENTS.$border-widths, $key);
-}
-
-@function radius($key: null) {
-  @return system.get-set-value(ELEMENTS.$radii, $key);
-}
-
-
 @function font-family($key: null) {
   @return system.get-set-value(ELEMENTS.$font-families, $key);
 }
@@ -40,13 +27,23 @@
 }
 
 
+@function border-style($key: null) {
+  @return system.get-set-value(ELEMENTS.$border-styles, $key);
+}
+
+@function border-width($key: null) {
+  @return system.get-set-value(ELEMENTS.$border-widths, $key);
+}
+
+
+@function radius($key: null) {
+  @return system.get-set-value(ELEMENTS.$radii, $key);
+}
+
 @function space($key: null) {
   @return system.get-set-value(ELEMENTS.$spaces, $key);
 }
 
-@function breakpoint($key: null) {
-  @return system.get-set-value(ELEMENTS.$breakpoints, $key);
-}
 
 @function height($key: null) {
   @return system.get-set-value(ELEMENTS.$heights, $key);
@@ -54,6 +51,11 @@
 
 @function width($key: null) {
   @return system.get-set-value(ELEMENTS.$widths, $key);
+}
+
+
+@function breakpoint($key: null) {
+  @return system.get-set-value(ELEMENTS.$breakpoints, $key);
 }
 
 @function zIndex($key: null) {

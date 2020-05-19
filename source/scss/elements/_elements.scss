@@ -1,65 +1,42 @@
-@use '../utilities';
+@use '../utility';
 
 $colors: (
-  'gray': (
+  'ink': (
     'set': (
-
+      hsl(0, 0, 10),
     ),
+    'selectors': (
+      'lighter': 1,
+    ),
+    'default': 1,
   ),
 );
 
-$opacities: (
-
-);
-
-
-$border-styles: (
-  'set': (
-    solid,
-  ),
-  'default': 1,
-  'alias': (
-
-  ),
-);
-
-$border-widths: (
-  'set': (
-    2
-  ),
-  'default': 1,
-  'alias': (
-
-  ),
-);
-
-$radii: (
-
-);
+$opacities: ();
 
 
 $font-sizes: (
   'set': (
-    utilities.px-to-rem(12),
-    utilities.px-to-rem(14),
-    utilities.px-to-rem(16),
-    utilities.px-to-rem(18),
-    utilities.px-to-rem(20),
+    utility.px-to-rem(12),
+    utility.px-to-rem(14),
+    utility.px-to-rem(16),
+    utility.px-to-rem(18),
+    utility.px-to-rem(20),
   ),
-  'default': 3,
-  'alias': (
+  'selectors': (
 
   ),
+  'default': 3,
 );
 
 $font-families: (
   'set': (
     (sans-serif),
   ),
-  'default': 1,
-  'alias': (
+  'selectors': (
     'small': 1,
-  )
+  ),
+  'default': 1,
 );
 
 $font-weights: (
@@ -67,61 +44,50 @@ $font-weights: (
 
   ),
   'default': 1,
-  'alias': (
+  'selectors': (
 
   ),
 );
 
-$line-heights: (
+$line-heights: ();
 
-);
+$letter-spacings: ();
 
-$letter-spacings: (
 
-);
+$border-styles: ();
+
+$border-widths: ();
+
+
+$radii: ();
 
 $spaces: (
   'set': (
-
+    8px,
+    12px,
+    20px,
+    40px,
+  ),
+  'selectors': (
+    'small': 1,
   ),
   'default': 1,
-  'alias': (
-
-  ),
-);
-
-$breakpoints: (
-  'set': (
-
-  ),
-  'default': 1,
-  'alias': (
-
-  ),
-);
-
-$heights: (
-
-);
-
-$widths: (
-
-);
-
-$zIndices: (
-
 );
 
 
-$images: (
+$heights: ();
 
-);
+$widths: ();
 
 
-$times: (
+$breakpoints: ();
 
-);
+$zIndices: ();
 
-$timingFunctions: (
 
-);
+$images: ();
+
+
+$times: ();
+
+$timingFunctions: ();

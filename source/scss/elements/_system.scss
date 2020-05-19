@@ -26,14 +26,14 @@
       @return list.nth($_set, $index);
     }
 
-    // If key is string and alias is set.
+    // If key is string and selectors is set.
     @if (
       meta.type-of($key) == string
-      and map.has-key($set, 'alias')
-      and meta.type-of(map.get($set, 'alias')) == map
-      and map.has-key(map.get($set, 'alias'), $key)
+      and map.has-key($set, 'selectors')
+      and meta.type-of(map.get($set, 'selectors')) == map
+      and map.has-key(map.get($set, 'selectors'), $key)
     ) {
-      $index: map.get(map.get($set, 'alias'), $key);
+      $index: map.get(map.get($set, 'selectors'), $key);
 
       @if (
         meta.type-of($index) == number
