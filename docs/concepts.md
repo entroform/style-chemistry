@@ -49,12 +49,11 @@ $font-sizes: (
 
 #### selectors
 
-`selectors` is a map, the key must be a string and the value is an index pointing to the value inside `set`.
-The above example uses dot notation to add additional level of hierarchy.
-This is not restricted, you may use whatever naming convention you want.
-More than one selectors can point to the same value, notice that `body.large` and `heading.small` points to the value `rem(18)` in the above example.
+`selectors` is a map, the key must be a string and the value is an index pointing to a value inside `set`.
+The above example uses dot notation to add additional level of hierarchy. This is not restricted, you may use whatever naming convention you want.
+More than one selectors can point to the same value, notice that `body.large` and `heading.small` points to the value `rem(18)` in the example above.
 
-**In SCSS, the index starts with 1 not 0.**
+**In SCSS, the index starts with 1 and not 0.**
 
 #### default
 
@@ -101,7 +100,7 @@ Getters are functions that resolve a value from a Set or SuperSet.
 
 ## Elements
 
-Elements are composed of the following 16 Sets and 1 SuperSet (`colors`) listed below and their getters.
+Elements are composed of the following **16 Sets** and **1 SuperSet** (`colors`) listed below and their getters.
 
 This is the canonical order of elements:
 
@@ -128,15 +127,18 @@ This is the canonical order of elements:
 
 ## Compounds
 
-Compounds are a mix of Element Set and SuperSets.
+Unlike Elements, Compounds are not restricted, which means that you can define your own Sets and/or SuperSets.
+Additionally you can use element and compound getters in your set value.
 
 ```scss
 $gradients: (
   'set': (
     'linear-gradient(90deg, #{color('magenta')}, #{color('cyan')})',
+    'linear-gradient(90deg, #{color('magenta')}, #{color('cyan')})',
   ),
   'selectors': (
     'sunset': 1,
+    'beach': 2,
   ),
   'default': 1,
 );
@@ -144,8 +146,12 @@ $gradients: (
 
 ## Mixtures
 
-Mixtures are a mix of Compounds and Elements Sets and SuperSets.
+Similar to Compounds, you can define your own Set and SuperSet but now you can also use Compound Getters **and** Elements Getters to resolve as a value.
 
-```scs
-
+```scss
+$typography: (
+  'set': (),
+  'selectors': (),
+  'default': 1,
+);
 ```
