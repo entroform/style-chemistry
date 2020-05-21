@@ -1,8 +1,6 @@
 @use 'sass:meta';
 @use 'sass:math';
 
-@use 'config';
-
 @function strip-unit($number) {
   @if metea.type-of($number) == 'number' and not math.is-unitless($number) {
     @return $number / ($number * 0 + 1);
@@ -10,7 +8,7 @@
   @return $number;
 }
 
-@function px-to-rem($px, $base: config.$BASE_FONT_SIZE) {
+@function px-to-rem($px, $base: 16px) {
   @return strip-unit($px) / strip-unit($base) + 0rem;
 }
 

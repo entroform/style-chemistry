@@ -1,0 +1,81 @@
+@use 'elements';
+@use '../../style-chemistry';
+
+@function color($set-name, $key: null) {
+  @return style-chemistry.get-super-set-value(elements.$colors, $set-name, $key);
+}
+
+@function opacity($key: null) {
+  @return style-chemistry.get-set-value(elements.$opacities, $key);
+}
+
+
+@function font-family($key: null) {
+  @return style-chemistry.get-set-value(elements.$font-families, $key);
+}
+
+@function font-size($key: null) {
+  @return style-chemistry.get-set-value(elements.$font-sizes, $key);
+}
+
+@function font-weight($key: null) {
+  @return style-chemistry.get-set-value(elements.$font-weights, $key);
+}
+
+@function letter-spacing($key: null) {
+  @return style-chemistry.get-set-value(elements.$letter-spacings, $key);
+}
+
+@function line-height($key: null) {
+  @return style-chemistry.get-set-value(elements.$line-heights, $key);
+}
+
+
+@function border-style($key: null) {
+  @return style-chemistry.get-set-value(elements.$border-styles, $key);
+}
+
+@function border-width($key: null) {
+  @return style-chemistry.get-set-value(elements.$border-widths, $key);
+}
+
+
+@function radius($key: null) {
+  @return style-chemistry.get-set-value(elements.$radii, $key);
+}
+
+@function space($key: null) {
+  @return style-chemistry.get-set-value(elements.$spaces, $key);
+}
+
+
+@function height($key: null) {
+  @return style-chemistry.get-set-value(elements.$heights, $key);
+}
+
+@function width($key: null) {
+  @return style-chemistry.get-set-value(elements.$widths, $key);
+}
+
+
+@function breakpoint($key: null) {
+  @return style-chemistry.get-set-value(elements.$breakpoints, $key);
+}
+
+@function z-index($key: null) {
+  @return style-chemistry.get-set-value(elements.$zIndices, $key);
+}
+
+
+@function image($key: null) {
+  @return style-chemistry.get-set-value(elements.$images, $key);
+}
+
+
+@function time($key: null) {
+  @return style-chemistry.get-set-value(elements.$timings, $key);
+}
+
+@function timing-function($key: null) {
+  @return style-chemistry.get-set-value(elements.$timingFunctions, $key);
+}
