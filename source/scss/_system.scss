@@ -8,10 +8,8 @@
     and map.has-key($set, 'set')
     and meta.type-of(map.get($set, 'set')) == list
   ) {
-
     $_set: map.get($set, 'set');
 
-    // Check default if key is null.
     @if ($key == null) {
       $index: 1;
 
@@ -54,7 +52,7 @@
     @error '$key is invalid or does not exist in set.';
   }
 
-  @error '$set is invalid.';
+  @error '$set is an invalid Set.';
 }
 
 @function get-super-set-value($super-set, $set, $value: null) {
@@ -65,5 +63,5 @@
     @return get-set-value(map.get($super-set, $set), $value);
   }
 
-  @error '$super-set is invalid or is not defined.';
+  @error '$super-set is an invalid SuperSet.';
 }

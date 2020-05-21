@@ -18,7 +18,7 @@ Style Chemistry is a simple and open-ended system to help you keep your UI Compo
 
 ### Set
 
-A set is the building block of the entire system.
+Set is the "building blocks" of the entire Style Chemistry system.
 It is a map that contains 3 fields: `set`, `selectors`, and `default`.
 
 An example of an Element Set:
@@ -45,19 +45,27 @@ $font-sizes: (
 
 #### set
 
-`set` is a list of scalar values.
+The **set** field is a list of "scalar" values that the getter functions will resolve to.
 
 #### selectors
 
-`selectors` is a map, the key must be a string and the value is an index pointing to a value inside `set`.
-The above example uses dot notation to add additional level of hierarchy. This is not restricted, you may use whatever naming convention you want.
-More than one selectors can point to the same value, notice that `body.large` and `heading.small` points to the value `rem(18)` in the example above.
+The **selectors** field is a map. The key is a "selector" string and the value is an index pointing to a value inside **set**. The above example uses dot notation to add additional level of hierarchy, this is not restricted, you may use whatever naming convention you want. More than one selectors can point to the same value, notice that `body.large` and `heading.small` points to the same value, `rem(18)`, in the above example.
 
-**In SCSS, the index starts with 1 and not 0.**
+*In SCSS, the index starts with 1 and not 0.*
 
 #### default
 
-Default points to a single value. This is the default value if no selector is passed to the getter.
+The **default** field value is an index that points to a value inside **set**. This value is the default value if no selector or index is passed inside a getter function.
+
+For example:
+
+```scss
+.body {
+  // The getter function, font-size(),
+  // will return 16px based on the Element Set example above.
+  font-size: elements.font-size();
+}
+```
 
 ### SuperSet
 
@@ -65,18 +73,18 @@ SuperSet is a map of Sets. They key is the "name" of the set.
 
 ```scss
 $colors: (
-  'purple': (
+  'paper': (
     'set': (
-      hsl(),
-      hsl(),
-      hsl(),
-      hsl(),
-      hsl(),
+      #FFFFFF,
+      #FAFAFA,
+      #F5F5F5,
+      #EFEFF0,
+      #E4E5E7,
     ),
     'selectors': (
       'lighter': 1,
       'light': 2,
-      'purple': 3,
+      'paper': 3,
       'dark': 4,
       'darker': 5,
     ),
@@ -84,25 +92,30 @@ $colors: (
   ),
   'ink': (
     'set': (
-
+      #5C6370,
+      #454A54,
+      #2E3138,
+      #121721,
     ),
     'selectors': (
-
+      'lightest': 1,
+      'lighter': 2,
+      'light': 3,
+      'ink': 4,
     ),
-    'default': 3,
+    'default': 4,
   ),
 );
 ```
 
 ## Getters
 
-Getters are functions that resolve a value from a Set or SuperSet.
+Getters are functions that resolve a value from a Set or SuperSet. Although getter functions can accept a set index, it is generally good practice to use selectors when trying to get a value from a set.
 
 ## Elements
 
-Elements are composed of the following **16 Sets** and **1 SuperSet** (`colors`) listed below and their getters.
-
-This is the canonical order of elements:
+Elements are composed of, and restricted to, the following **16 Sets** and **1 SuperSet** (`colors`).
+They are listed below, in canonica order, with their associated getter function names:
 
 | Element | Type | Getter |
 |---|---|---|
@@ -127,14 +140,17 @@ This is the canonical order of elements:
 
 ## Compounds
 
-Unlike Elements, Compounds are not restricted, which means that you can define your own Sets and/or SuperSets.
-Additionally you can use element and compound getters in your set value.
+Compounds is a level of abstraction above Elements.
+Unlike Elements, Compounds are not restricted, which means you can define your own Sets and/or SuperSets.
+In addition to this, you can use and interpolate Element Getters in your set values.
+
+An example:
 
 ```scss
 $gradients: (
   'set': (
-    'linear-gradient(90deg, #{color('magenta')}, #{color('cyan')})',
-    'linear-gradient(90deg, #{color('magenta')}, #{color('cyan')})',
+    'linear-gradient(90deg, #{elements.color('magenta', 'lighter')}, #{elements.color('indigo', 'light')})',
+    'linear-gradient(45deg, #{elememts.color('peach', 'light')}, #{elements.color('cyan', 'light')})',
   ),
   'selectors': (
     'sunset': 1,
@@ -146,12 +162,4 @@ $gradients: (
 
 ## Mixtures
 
-Similar to Compounds, you can define your own Set and SuperSet but now you can also use Compound Getters **and** Elements Getters to resolve as a value.
-
-```scss
-$typography: (
-  'set': (),
-  'selectors': (),
-  'default': 1,
-);
-```
+Mixtures is the final level of abstraction in Style Chemistry. Similar to Compounds, you are free to define your own Sets and/or SuperSets, but now you can use Compound and Elements Getters in your set values.
