@@ -19,7 +19,7 @@ The system acts as the **single source of truth** of your stylesheet and is comp
 
 ### Set
 
-Set is the "building blocks" of the entire Style Chemistry system.
+A Set is the "building block" of the entire Style Chemistry system.
 It is a map that contains 3 fields: `set`, `selectors`, and `default`.
 
 An example of an Element Set:
@@ -70,7 +70,9 @@ For example:
 
 ### SuperSet
 
-SuperSet is a map of Sets. They key is the "name" of the set.
+A SuperSet is a map of Sets. They key is the "name" of the Set and the value is a Set.
+
+The Element colors below is an example of a SuperSet:
 
 ```scss
 $colors: (
