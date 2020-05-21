@@ -1,6 +1,7 @@
 # Style Chemistry
 
 Style Chemistry is a simple and open-ended system to help you keep your UI Component's styling consistent and harmonious.
+The system acts as the single source of truth of your stylesheets, and is comprised of "Sets", the building block of the entire system, with 3 levels of abstraction: Elements, Compounds, and Mixtures.
 
 - [Style Chemistry](#style-chemistry)
   - [Set and SuperSet](#set-and-superset)
