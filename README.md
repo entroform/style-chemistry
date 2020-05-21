@@ -50,7 +50,7 @@ The **set** field is a list of "scalar" values that the getter functions will re
 
 #### selectors
 
-The **selectors** field is a map. The key is a "selector" string and the value is an index pointing to a value inside **set**. The above example uses dot notation to add additional level of hierarchy, this is not restricted, you may use whatever naming convention you want. More than one selectors can point to the same value, notice that `body.large` and `heading.small` points to the same value, `rem(18)`, in the above example.
+The **selectors** field is a map. The key is a "selector" string and the value is an index pointing to a value inside **set**. The above example uses dot notation to add additional level of hierarchy, this is not restricted, you may use whatever naming convention you want. More than one selectors can point to the same value, notice that `body.large` and `heading.small` points to the same value, `18px`, in the above example.
 
 *In SCSS, the index starts with 1 and not 0.*
 
