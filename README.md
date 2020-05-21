@@ -120,30 +120,32 @@ Getters are functions that resolve a value from a Set or SuperSet. Although gett
 Elements are composed of, and restricted to, the following **16 Sets** and **1 SuperSet** (`colors`).
 They are listed below, in canonica order, with their associated getter function names:
 
-| Element | Type | Getter |
-|---|---|---|
-| colors | SuperSet | color |
-| opacities | Set | opacity |
-| font-families | Set | font-family |
-| font-sizes | Set | font-size |
-| font-weights | Set | font-weight |
-| letter-spacings | Set | letter-spacing |
-| line-heights | Set | line-height |
-| border-styles | Set | border-style |
-| border-widths | Set | border-width |
-| radii | Set | radius |
-| spaces | Set | space |
-| heights | Set | height |
-| widths | Set | width |
-| breakpoints | Set | breakpoint |
-| z-indices | Set | z-index |
-| images | Set | image |
-| times | Set | time |
-| timing-functions | Set | timing-function |
+| Element          | Type     | Getter          |
+| ---------------- | -------- | --------------- |
+| colors           | SuperSet | color           |
+| opacities        | Set      | opacity         |
+| font-families    | Set      | font-family     |
+| font-sizes       | Set      | font-size       |
+| font-weights     | Set      | font-weight     |
+| letter-spacings  | Set      | letter-spacing  |
+| line-heights     | Set      | line-height     |
+| border-styles    | Set      | border-style    |
+| border-widths    | Set      | border-width    |
+| radii            | Set      | radius          |
+| spaces           | Set      | space           |
+| heights          | Set      | height          |
+| widths           | Set      | width           |
+| breakpoints      | Set      | breakpoint      |
+| z-indices        | Set      | z-index         |
+| images           | Set      | image           |
+| times            | Set      | time            |
+| timing-functions | Set      | timing-function |
+
+You don't have to define or use all of them in your project, you are free to pick and choose.
 
 ## Compounds
 
-Compounds is a level of abstraction above Elements.
+Compounds is an optional level of abstraction above Elements.
 Unlike Elements, Compounds are not restricted, which means you can define your own Sets and/or SuperSets.
 In addition to this, you can use and interpolate Element Getters in your set values.
 
@@ -165,4 +167,4 @@ $gradients: (
 
 ## Mixtures
 
-Mixtures is the final level of abstraction in Style Chemistry. Similar to Compounds, you are free to define your own Sets and/or SuperSets, but now you can use Compound and Elements Getters in your set values.
+Mixtures is the final level of abstraction in Style Chemistry. Similar to Compounds, it is optional and you are free to define your own Sets and/or SuperSets, but now you can use Compound and Elements Getters in your set values.

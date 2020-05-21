@@ -1,7 +1,7 @@
 {
   "name": "style-chemistry",
   "version": "0.0.0",
-  "description": "",
+  "description": "Style Chemistry is a simple and open-ended system to help you keep your UI Component's styling consistent and harmonious.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
