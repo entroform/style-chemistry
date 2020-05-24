@@ -1,0 +1,11 @@
+@use '../elements/getters' as elements;
+
+$gradients: (
+  'set': (
+    'linear-gradient(45deg, #{elements.color('magenta')}, #{elements.color('blue', 'lighter')}'
+  ),
+  'selectors': (
+    'sunset': 1,
+  ),
+  'default': 1,
+);

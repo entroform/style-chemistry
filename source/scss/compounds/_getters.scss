@@ -1,0 +1,6 @@
+@use 'compounds';
+@use '../../style-chemistry';
+
+@function gradient($key: null) {
+  @return style-chemistry.get-set-value(compounds.$gradients, $key);
+}

@@ -1,7 +1,7 @@
 # Style Chemistry
 
-Style Chemistry is a simple and open-ended system to help you keep your UI Component's styling consistent and harmonious.
-The system acts as the **single source of truth** of your stylesheet and is comprised of "Sets", the building block of the entire system, with 3 levels of abstraction: Elements, Compounds, and Mixtures.
+Style Chemistry is a simple and open-ended system to help you keep your UI Components styling consistent and harmonious.
+The system acts as the **Single Source of Truth** of your stylesheets and is comprised of "Sets", the building block of the entire system, with 3 levels of abstraction: Elements, Compounds, and Mixtures.
 
 - [Style Chemistry](#style-chemistry)
   - [Set and SuperSet](#set-and-superset)
@@ -20,7 +20,7 @@ The system acts as the **single source of truth** of your stylesheet and is comp
 ### Set
 
 A Set is the "building block" of the entire Style Chemistry system.
-It is a map that contains 3 fields: `set`, `selectors`, and `default`.
+It is a map that has 3 fields: `set`, `selectors`, and `default`.
 
 An example of an Element Set:
 
@@ -50,13 +50,13 @@ The **set** field is a list of "scalar" values that the getter functions will re
 
 #### selectors
 
-The **selectors** field is a map. The key is a "selector" string and the value is an index pointing to a value inside **set**. The above example uses dot notation to add additional level of hierarchy, this is not restricted, you may use whatever naming convention you want. More than one selectors can point to the same value, notice that `body.large` and `heading.small` points to the same value, `18px`, in the above example.
+The **selectors** field is a map. The key is a "selector" string and the value is an index pointing to a value inside **set**. The above example uses dot notation to add additional level of hierarchy, this is not restricted, you may use whatever naming convention you want. More than one selectors can point to the same value, notice that in the above example `body.large` and `heading.small` points to the same value, `18px`.
 
 *In SCSS, the index starts with 1 and not 0.*
 
 #### default
 
-The **default** field value is an index that points to a value inside **set**. This value is the default value if no selector or index is passed inside a getter function.
+The **default** field value is an index that points to a value inside **set**. This value is the default returned value if no selector or index is passed to the getter function.
 
 For example:
 
@@ -141,13 +141,14 @@ They are listed below, in canonica order, with their associated getter function 
 | times            | Set      | time            |
 | timing-functions | Set      | timing-function |
 
-You don't have to define or use all of them in your project, you are free to pick and choose.
+You don't have to define all of them in your project, you are free to pick and choose base on your need.
 
 ## Compounds
 
 Compounds is an optional level of abstraction above Elements.
 Unlike Elements, Compounds are not restricted, which means you can define your own Sets and/or SuperSets.
 In addition to this, you can use and interpolate Element Getters in your set values.
+It is conventional to use *plural* to name your compounds and *singular* to name it's associated getter function.
 
 An example:
 
@@ -168,3 +169,4 @@ $gradients: (
 ## Mixtures
 
 Mixtures is the final level of abstraction in Style Chemistry. Similar to Compounds, it is optional and you are free to define your own Sets and/or SuperSets, but now you can use Compound and Elements Getters in your set values.
+It is conventional to use *plural* to name your mixtures and *singular* to name it's associated getter function.
