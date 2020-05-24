@@ -1,7 +1,7 @@
 # Style Chemistry
 
 Style Chemistry is a simple and open-ended system to help you keep your UI Components styling consistent and harmonious.
-The system acts as the **Single Source of Truth** of your stylesheets and is comprised of "Sets", the building block of the entire system, with 3 levels of abstraction: Elements, Compounds, and Mixtures.
+The system acts as the **Single Source of Truth** of your stylesheet and is comprised of "Sets", the building blocks of the system, with 3 levels of abstraction: Elements, Compounds, and Mixtures.
 
 - [Style Chemistry](#style-chemistry)
   - [Set and SuperSet](#set-and-superset)
@@ -19,7 +19,7 @@ The system acts as the **Single Source of Truth** of your stylesheets and is com
 
 ### Set
 
-A Set is the "building block" of the entire Style Chemistry system.
+A Set is the "building block" of the Style Chemistry system.
 It is a map that has 3 fields: `set`, `selectors`, and `default`.
 
 An example of an Element Set:
@@ -46,11 +46,11 @@ $font-sizes: (
 
 #### set
 
-The **set** field is a list of "scalar" values that the getter functions will resolve to.
+The **set** field is a list of "scalar" values that the getter functions will try to resolve value from.
 
 #### selectors
 
-The **selectors** field is a map. The key is a "selector" string and the value is an index pointing to a value inside **set**. The above example uses dot notation to add additional level of hierarchy, this is not restricted, you may use whatever naming convention you want. More than one selectors can point to the same value, notice that in the above example `body.large` and `heading.small` points to the same value, `18px`.
+The **selectors** field is a map. The key is a "selector" string and the value is an index pointing to a value inside **set**. The above example uses dot notation to add hierarchy, this is not restricted, you may use whatever naming convention you want. More than one selectors can point to the same value, notice that in the above example `body.large` and `heading.small` points to the same value, `18px`.
 
 *In SCSS, the index starts with 1 and not 0.*
 
@@ -72,7 +72,7 @@ For example:
 
 A SuperSet is a map of Sets. They key is the "name" of the Set and the value is a Set.
 
-The Element colors below is an example of a SuperSet:
+The Element, colors, below is an example of a SuperSet:
 
 ```scss
 $colors: (
@@ -113,12 +113,12 @@ $colors: (
 
 ## Getters
 
-Getters are functions that resolve a value from a Set or SuperSet. Although getter functions can accept a set index, it is generally good practice to use selectors when trying to get a value from a set.
+Getters are functions that resolve a value from a Set or SuperSet. Although getter functions can accept a set index, it is generally a good practice to use selectors when trying to get a value from a set.
 
 ## Elements
 
 Elements are composed of, and restricted to, the following **16 Sets** and **1 SuperSet** (`colors`).
-They are listed below, in canonica order, with their associated getter function names:
+They are listed below, in canonical order, with their associated getter function names:
 
 | Element          | Type     | Getter          |
 | ---------------- | -------- | --------------- |
@@ -141,11 +141,11 @@ They are listed below, in canonica order, with their associated getter function 
 | times            | Set      | time            |
 | timing-functions | Set      | timing-function |
 
-You don't have to define all of them in your project, you are free to pick and choose base on your need.
+You don't have to define all of them in your project, you are free to pick and choose depending on your requirements.
 
 ## Compounds
 
-Compounds is an optional level of abstraction above Elements.
+"Compounds" is an optional level of abstraction above Elements.
 Unlike Elements, Compounds are not restricted, which means you can define your own Sets and/or SuperSets.
 In addition to this, you can use and interpolate Element Getters in your set values.
 It is conventional to use *plural* to name your compounds and *singular* to name it's associated getter function.
