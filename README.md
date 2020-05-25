@@ -1,6 +1,6 @@
 # Style Chemistry
 
-Style Chemistry is a simple and open-ended system to help you keep your UI Components styling consistent and harmonious.
+Style Chemistry is a simple and open-ended system to help you keep your UI Component's styling consistent and harmonious.
 The system acts as the **Single Source of Truth** of your stylesheet and is comprised of "Sets", the building blocks of the system, with 3 levels of abstraction: Elements, Compounds, and Mixtures.
 
 - [Style Chemistry](#style-chemistry)
@@ -61,6 +61,8 @@ The **default** field value is an index that points to a value inside **set**. T
 For example:
 
 ```scss
+@use 'elements/getters' as elements;
+
 .body {
   // The getter function, font-size(),
   // will return 16px based on the Element Set example above.
@@ -113,7 +115,7 @@ $colors: (
 
 ## Getters
 
-Getters are functions that resolve a value from a Set or SuperSet. Although getter functions can accept a set index, it is generally a good practice to use selectors when trying to get a value from a set.
+Getters are functions that *selects* a value from a Set or SuperSet. Although getter functions can accept a set index, it is generally a good practice to use selectors when trying to resolve a value from a set.
 
 ## Elements
 
@@ -153,6 +155,10 @@ It is conventional to use *plural* to name your compounds and *singular* to name
 An example:
 
 ```scss
+// _compounds.scss
+
+@use '../elements/getters' as elements;
+
 $gradients: (
   'set': (
     'linear-gradient(90deg, #{elements.color('magenta', 'lighter')}, #{elements.color('indigo', 'light')})',
@@ -168,5 +174,13 @@ $gradients: (
 
 ## Mixtures
 
-Mixtures is the final level of abstraction in Style Chemistry. Similar to Compounds, it is optional and you are free to define your own Sets and/or SuperSets, but now you can use Compound and Elements Getters in your set values.
+Mixtures is the final level of abstraction in Style Chemistry. Similar to Compounds, it is optional and you are free to define your own Sets and/or SuperSets, but now you can use Compound and Elements Getters in your set values. You can also define mixins to a specify a set of CSS rules instead of a gettier function.
+
 It is conventional to use *plural* to name your mixtures and *singular* to name it's associated getter function.
+
+```scss
+%normalize-fonts {
+  font-size: elements.font-size('body.normal');
+  line-height: elements.line-height('body.normal');
+}
+```
