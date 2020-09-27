@@ -19,10 +19,24 @@ The system acts as the **Single Source of Truth** of your stylesheet and is comp
 
 ### Set
 
-A Set is the "building block" of the Style Chemistry system.
-It is a map that has 3 fields: `set`, `selectors`, and `default`.
+A Set is the "building block" of the Style Chemistry system. There are two modes for sets: "lenient" or "strict". It is a map that has 2 fields in "lenient" mode and 3 fields in "strict" mode: `set`, `selectors`, and `default`.
 
-An example of an Element Set:
+An example of a "lenient" Element Set:
+
+```scss
+$font-sizes: (
+  'selectors': (
+    'body.small': 14px,
+    'body.normal': 16px,
+    'body.large': 18px,
+    'heading.small': 20px,
+    'heading.normal': 24px,
+  ),
+  'default': 'body.small',
+);
+```
+
+An example of a "strict" Element Set:
 
 ```scss
 $font-sizes: (
@@ -56,7 +70,7 @@ The **selectors** field is a map. The key is a "selector" string and the value i
 
 #### default
 
-The **default** field value is an index that points to a value inside **set**. This value is the default returned value if no selector or index is passed to the getter function.
+In "lenient" mode, the **default** field value is a selector key. In "strict" mode, the **default** field value is an index that points to a value inside **set**. This value is the default returned value if no selector or index is passed to the getter function.
 
 For example:
 
@@ -74,7 +88,7 @@ For example:
 
 A SuperSet is a map of Sets. They key is the "name" of the Set and the value is a Set.
 
-The Element, colors, below is an example of a SuperSet:
+The Element, colours, below is an example of a SuperSet:
 
 ```scss
 $colors: (
@@ -119,7 +133,7 @@ Getters are functions that *selects* a value from a Set or SuperSet. Although ge
 
 ## Elements
 
-Elements are composed of, and restricted to, the following **16 Sets** and **1 SuperSet** (`colors`).
+Elements are composed of, and restricted, to the following **16 Sets** and **1 SuperSet** (`colors`).
 They are listed below, in canonical order, with their associated getter function names:
 
 | Element          | Type     | Getter          |
@@ -152,10 +166,26 @@ Unlike Elements, Compounds are not restricted, which means you can define your o
 In addition to this, you can use and interpolate Element Getters in your set values.
 It is conventional to use *plural* to name your compounds and *singular* to name it's associated getter function.
 
-An example:
+An example of a Compound in "lenient" mode:
 
 ```scss
-// _compounds.scss
+// compounds.scss
+
+@use '../elements/getters' as elements;
+
+$gradients: (
+  'selectors': (
+    'sunset': 'linear-gradient(90deg, #{elements.color('magenta', 'lighter')}, #{elements.color('indigo', 'light')})',
+    'beach': 'linear-gradient(45deg, #{elememts.color('peach', 'light')}, #{elements.color('cyan', 'light')})',
+  ),
+  'default': 'sunset'
+);
+```
+
+An example of a Compound in "strict" mode:
+
+```scss
+// compounds.scss
 
 @use '../elements/getters' as elements;
 
@@ -174,7 +204,7 @@ $gradients: (
 
 ## Mixtures
 
-Mixtures is the final level of abstraction in Style Chemistry. Similar to Compounds, it is optional and you are free to define your own Sets and/or SuperSets, but now you can use Compound and Elements Getters in your set values. You can also define mixins to a specify a set of CSS rules instead of a gettier function.
+Mixtures is the final level of abstraction in Style Chemistry. Similar to Compounds, it is optional and you are free to define your own Sets and/or SuperSets, but now you can use Compound and Elements Getters in your set values. You can also define mixins to a specify a set of CSS rules instead of a getter function.
 
 It is conventional to use *plural* to name your mixtures and *singular* to name it's associated getter function.
 

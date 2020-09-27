@@ -2,7 +2,50 @@
 @use 'sass:meta';
 @use 'sass:list';
 
-@function get-set-value($set, $key: null) {
+@function get-lenient-set-value($set, $key: null) {
+  @if (
+    meta.type-of($set) == map
+    and map.has-key($set, 'selectors')
+  ) {
+
+    $_selectors: map.get($set, 'selectors');
+
+    @if ($key == null) {
+      $index: 1;
+
+      @if (
+        map.has-key($set, 'default')
+        and meta.type-of(map.get($set, 'default')) == string
+      ) {
+        $_key: map.get($set, 'default');
+
+        @if (
+          meta.type-of($key) == string
+          and meta.type-of($_selectors) == map
+          and map.has-key($_selectors, $_key)
+        ) {
+          @return map.get($_selectors, $_key);
+        }        
+      }
+    }
+
+    // If key is string and selectors is set.
+    @if (
+      meta.type-of($key) == string
+      and meta.type-of($_selectors) == map
+      and map.has-key($_selectors, $key)
+    ) {
+      @return map.get($_selectors, $key);
+    }
+
+
+    @error '$key is invalid or does not exist in set.';
+  }
+
+  @error '$set is an invalid Set.';
+}
+
+@function get-strict-set-value($set, $key: null) {
   @if (
     meta.type-of($set) == map
     and map.has-key($set, 'set')
@@ -55,7 +98,18 @@
   @error '$set is an invalid Set.';
 }
 
-@function get-super-set-value($super-set, $set, $value: null) {
+@function get-lenient-super-set-value($super-set, $set, $value: null) {
+  @if (
+    meta.type-of($super-set) == map
+    and map.has-key($super-set, $set)
+  ) {
+    @return get-lenient-set-value(map.get($super-set, $set), $value);
+  }
+
+  @error '$super-set is an invalid SuperSet.';
+}
+
+@function get-strict-super-set-value($super-set, $set, $value: null) {
   @if (
     meta.type-of($super-set) == map
     and map.has-key($super-set, $set)
